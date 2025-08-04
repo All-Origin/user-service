@@ -10,10 +10,7 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/user")
@@ -28,6 +25,7 @@ public class UserRegister {
     }
 
     @PostMapping("/register")
+    @CrossOrigin(origins = "*")
     @Operation(summary = "Register", description = "Register user with RegistrationRequestDto and provide UserDto")
     public ResponseEntity<UserDto> registerUser(@Valid @RequestBody RegistrationRequestDto requestDto){
         UserDto userDto = userService.register(requestDto);
@@ -35,6 +33,7 @@ public class UserRegister {
     }
 
     @PostMapping("/validate")
+    @CrossOrigin(origins = "*")
     @Operation(summary = "Validate", description = "Validate user with LoginRequestDto and provide UserValidationResponse")
     public ResponseEntity<UserValidationResponse> registerUser(@Valid @RequestBody LoginRequestDto requestDto){
         UserValidationResponse response = userService.validate(requestDto);

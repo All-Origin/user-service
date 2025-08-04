@@ -42,6 +42,7 @@ public class UserServiceImpl implements UserService {
             List<Roles> roleList = new ArrayList<>();
             roleList.add(Roles.ROLE_USER);
             User user = User.builder()
+                    .name(requestDto.getName())
                     .userName(requestDto.getUserName())
                     .email(requestDto.getEmail())
                     .passwordHash(passwordEncoder.encode(requestDto.getPassword())) // Use PasswordEncoder here!
@@ -51,9 +52,12 @@ public class UserServiceImpl implements UserService {
             userRepository.save(user);
             // Map back to UserDto (use a mapper later)
             return UserDto.builder()
+                    .name(user.getName())
                     .userName(user.getUserName())
                     .email(user.getEmail())
                     .roles(user.getRoles())
+                    .createdAt(String.valueOf(user.getCreatedAt()))  // <-- these will now be filled
+                    .updatedAt(String.valueOf(user.getUpdatedAt()))
                     .build();
 
         }catch (Exception e){

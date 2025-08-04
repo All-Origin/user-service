@@ -20,17 +20,18 @@ public class StartupAdminInitializer {
 
     @Autowired
     private PasswordEncoder passwordEncoder;
-    @Value("${admin.username:admin}")
+    @Value("${admin.userName:admin}")
     private String defaultAdminUsername;
-
+    @Value("${admin.Name:BrainZ")
+    private String defaultName;
     @Value("${admin.password:admin123}")
     private String defaultAdminPassword;
 
     @PostConstruct
     public void initAdmin() {
-        if (!userRepository.existsByUserName("admin")) {
+        if (!userRepository.existsByUserName(defaultAdminUsername)) {
             User admin = new User();
-            admin.setName("brainZ");
+            admin.setName(defaultName);
             admin.setUserName(defaultAdminUsername);
             admin.setPasswordHash(passwordEncoder.encode(defaultAdminPassword));
             admin.setRoles(List.of(Roles.ROLE_ADMIN));
