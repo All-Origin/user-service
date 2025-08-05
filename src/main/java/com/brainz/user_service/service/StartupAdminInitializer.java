@@ -22,7 +22,7 @@ public class StartupAdminInitializer {
     private PasswordEncoder passwordEncoder;
     @Value("${admin.userName:admin}")
     private String defaultAdminUsername;
-    @Value("${admin.Name:BrainZ")
+    @Value("${admin.Name:BrainZ}")
     private String defaultName;
     @Value("${admin.password:admin123}")
     private String defaultAdminPassword;
