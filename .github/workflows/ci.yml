@@ -79,4 +79,4 @@ jobs:
 
       - name: "Deploy to develop server"
         run: |
-          echo "Buy aws server first..."
+          echo "Buy aws server first.."
