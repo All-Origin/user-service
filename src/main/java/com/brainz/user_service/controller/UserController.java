@@ -67,12 +67,13 @@ public class UserController {
     @PutMapping("/me")
     @Operation(summary = "Update current user")
     public ResponseEntity<UserDto> updateCurrentUser(
-            @AuthenticationPrincipal JwtAuthenticationToken token,
+            Authentication authentication,
             @Valid @RequestBody UserDto userDto) {
-        if (token == null) {
+        if (authentication == null || !(authentication instanceof JwtAuthenticationToken)) {
             throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Authentication required");
         }
-        Long userId = Long.valueOf(token.getToken().getSubject());
+        JwtAuthenticationToken jwtAuth = (JwtAuthenticationToken) authentication;
+        Long userId = Long.valueOf(jwtAuth.getToken().getSubject());
         UserDto updated = userService.updateUser(userId, userDto);
         return ResponseEntity.ok(updated);
     }
@@ -80,11 +81,12 @@ public class UserController {
     //Todo: we have to validate user before accessing this in future not now!!
     @DeleteMapping("/me")
     @Operation(summary = "Delete current user")
-    public ResponseEntity<String> deleteCurrentUser(@AuthenticationPrincipal JwtAuthenticationToken token) {
-        if (token == null) {
-            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Authentication required");
-        }
-        Long userId = Long.valueOf(token.getToken().getSubject());
+    public ResponseEntity<String> deleteCurrentUser( Authentication authentication) {
+       if(authentication==null || !(authentication instanceof JwtAuthenticationToken)){
+           throw new ResponseStatusException(HttpStatus.UNAUTHORIZED,"Authentication required");
+       }
+       JwtAuthenticationToken jwtAuthenticationToken = (JwtAuthenticationToken) authentication;
+        Long userId = Long.valueOf(jwtAuthenticationToken.getToken().getSubject());
         String result = userService.deleteUser(userId);
         return ResponseEntity.ok(result);
     }
