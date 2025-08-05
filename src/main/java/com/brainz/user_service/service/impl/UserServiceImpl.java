@@ -87,4 +87,98 @@ public class UserServiceImpl implements UserService {
                 .roles(user.getRoles())
                 .build();
     }
+
+    @Override
+    public UserDto getUser(Long id) {
+        User user = userRepository.getById(id);
+        if (user == null) {
+            throw new RuntimeException("user not found");
+        }
+        return UserDto.builder()
+                .name(user.getName())
+                .email(user.getEmail())
+                .roles(user.getRoles())
+                .updatedAt(String.valueOf(user.getUpdatedAt()))
+                .createdAt(String.valueOf(user.getCreatedAt()))
+                .userName(user.getUserName())
+                .build();
+
+    }
+
+    @Override
+    public UserDto updateUser(Long id, UserDto requestDto) {
+        User user = userRepository.getById(id);
+        if (user == null) {
+            throw new RuntimeException("user not found");
+        }
+        user = User.builder()
+                .name(requestDto.getName())
+                .userName(requestDto.getUserName())
+                .email(requestDto.getEmail())
+                .enabled(true)
+                .build();
+        userRepository.save(user);
+
+        return UserDto.builder()
+                .name(user.getName())
+                .email(user.getEmail())
+                .roles(user.getRoles())
+                .updatedAt(String.valueOf(user.getUpdatedAt()))
+                .createdAt(String.valueOf(user.getCreatedAt()))
+                .userName(user.getUserName())
+                .build();
+    }
+
+    @Override
+    public String deleteUser(Long id) {
+        User user = userRepository.getById(id);
+        if (user==null) {
+            throw new RuntimeException("user not found");
+        }
+        try{
+
+            userRepository.deleteById(id);
+
+        }catch (Exception e){
+            throw new RuntimeException(e);
+        }
+        return "User deleted!";
+    }
+
+    @Override
+    public List<UserDto> getAllUser() {
+       // for now not using pagination
+        List<User> users = userRepository.findAll();
+        List<UserDto> userDtos = new ArrayList<>();
+        users.forEach(user ->
+        userDtos.add(
+                UserDto.builder()
+                .name(user.getName())
+                .email(user.getEmail())
+                .roles(user.getRoles())
+                .updatedAt(String.valueOf(user.getUpdatedAt()))
+                .createdAt(String.valueOf(user.getCreatedAt()))
+                .userName(user.getUserName())
+                .build()
+        ));
+        return userDtos;
+
+    }
+
+    @Override
+    public UserDto searchUser(String userName) {
+        User user = userRepository.findByUserName(userName);
+        if(user!=null){
+          return   UserDto.builder()
+                    .name(user.getName())
+                    .email(user.getEmail())
+                    .roles(user.getRoles())
+                    .updatedAt(String.valueOf(user.getUpdatedAt()))
+                    .createdAt(String.valueOf(user.getCreatedAt()))
+                    .userName(user.getUserName())
+                    .build();
+        }
+        return null;
+
+    }
 }
