@@ -1,8 +1,8 @@
-package com.brainz.user_service.service;
+package com.junior.user_service.service;
 
-import com.brainz.user_service.entity.User;
-import com.brainz.user_service.enums.Roles;
-import com.brainz.user_service.repository.UserRepository;
+import com.junior.user_service.entity.User;
+import com.junior.user_service.enums.Roles;
+import com.junior.user_service.repository.UserRepository;
 import jakarta.annotation.PostConstruct;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,11 +20,11 @@ public class StartupAdminInitializer {
 
     @Autowired
     private PasswordEncoder passwordEncoder;
-    @Value("${admin.userName:admin}")
+    @Value("${admin.userName:junior}")
     private String defaultAdminUsername;
-    @Value("${admin.Name:BrainZ}")
+    @Value("${admin.Name:Junior Ai}")
     private String defaultName;
-    @Value("${admin.password:admin123}")
+    @Value("${admin.password:junior123}")
     private String defaultAdminPassword;
 
     @PostConstruct

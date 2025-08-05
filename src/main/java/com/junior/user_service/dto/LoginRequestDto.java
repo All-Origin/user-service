@@ -1,4 +1,4 @@
-package com.brainz.user_service.dto;
+package com.junior.user_service.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,6 +1,6 @@
-package com.brainz.user_service.converter;
+package com.junior.user_service.converter;
 
-import com.brainz.user_service.enums.Roles;
+import com.junior.user_service.enums.Roles;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.persistence.AttributeConverter;

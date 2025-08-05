@@ -1,6 +1,6 @@
 
 
-# 🧠 **Brainz User Service -  Overview**
+# 🧠 **Junior User Service -  Overview**
 
 > **Author:** Jeet Solanki
 > **Version:** 1.0
@@ -11,7 +11,7 @@
 
 ## 🎯 **Our Aim (Vision Statement)**
 
-To build a **production-grade User Service** that is fast, secure, scalable, and smart — capable of powering the Brainz ecosystem with seamless user management, intelligent search, and advanced data operations.
+To build a **production-grade User Service** that is fast, secure, scalable, and smart — capable of powering the Junior ecosystem with seamless user management, intelligent search, and advanced data operations.
 
 Our goal is to support:
 
@@ -25,7 +25,7 @@ Our goal is to support:
 
 ## 🧠 **Why This Matters**
 
-In Brainz, users **don’t just log in** — they build a digital mind. So our User Service must be **resilient**, **intelligent**, and **open to future evolution** like context-storing vectors, elastic search, and more.
+In Junoir, users **don’t just log in** — they build a digital mind. So our User Service must be **resilient**, **intelligent**, and **open to future evolution** like context-storing vectors, elastic search, and more.
 
 ---
 
@@ -164,9 +164,9 @@ If we use `.requestMatchers("/**").permitAll()` (i.e., allow all), **any API can
 ```json
 {
   "id": 123,
-  "username": "brainz_rider",
-  "email": "brainz@fun.ai",
-  "avatar": "https://cdn.brainz.ai/u/123.png",
+  "username": "Junior123",
+  "email": "Junior@fun.ai",
+  "avatar": "https://cdn.Junior.ai/u/123.png",
   "bio": "AI tamer. Debate lover.",
   "joinedAt": "2025-08-01T12:00:00Z",
   "roles": ["USER"]
@@ -198,7 +198,7 @@ import org.mapstruct.Mapper;
 
 ## ✅ Summary
 
-The `User Service` is the **foundational block** of Brainz that enables everything from AI matching, gamification progress, and personalized LLM behavior. It’s secure, fast, DTO-driven, and future-ready for elastic/vector intelligence.
+The `User Service` is the **foundational block** of Junior that enables everything from AI matching, gamification progress, and personalized LLM behavior. It’s secure, fast, DTO-driven, and future-ready for elastic/vector intelligence.
 
 ---
 
