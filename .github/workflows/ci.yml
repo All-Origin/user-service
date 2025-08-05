@@ -1,4 +1,5 @@
 name: "CI/CD workflow"
+
 on:
   push:
     branches: ['master', 'dev']
@@ -15,12 +16,12 @@ jobs:
 
     steps:
       - name: "Fail if JWT_SECRET is missing"
+        shell: bash
         run: |
-            if [ -z "$JWT_SECRET" ]; then
-              echo "❌ JWT_SECRET secret not found. Stopping workflow."
-              exit 1
-            fi
-          shell: bash
+          if [ -z "$JWT_SECRET" ]; then
+            echo "❌ JWT_SECRET secret not found. Stopping workflow."
+            exit 1
+          fi
 
       - name: "Checkout code"
         uses: actions/checkout@v4
@@ -32,11 +33,11 @@ jobs:
           distribution: 'temurin'
 
       - name: "Cache Maven Packages"
-        uses:  actions/cache@v4
+        uses: actions/cache@v4
         with:
           path: ~/.m2/repository
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
-          restore-key:
+          restore-keys: |
             ${{ runner.os }}-maven
 
       - name: "Run Maven Build and Tests"
@@ -48,14 +49,16 @@ jobs:
     runs-on: ubuntu-latest
     env:
       JWT_SECRET: ${{ secrets.JWT_SECRET }}
+
     steps:
       - name: "Checkout code"
         uses: actions/checkout@v4
+
       - name: "Set up Docker Build"
         uses: docker/setup-buildx-action@v3
+
       - name: "Build Docker Image"
-        run: |
-          docker build -t my-user-app:latest .
+        run: docker build -t my-user-app:latest .
 
   deploy:
     name: "Deploy On Tag"
@@ -67,12 +70,13 @@ jobs:
 
     steps:
       - name: "Fail if JWT_SECRET is missing"
+        shell: bash
         run: |
-            if [ -z "$JWT_SECRET" ]; then
-              echo "❌ JWT_SECRET secret not found. Aborting deployment."
-              exit 1
-            fi
-          shell: bash
-      - name: Deploy to develop server
+          if [ -z "$JWT_SECRET" ]; then
+            echo "❌ JWT_SECRET secret not found. Aborting deployment."
+            exit 1
+          fi
+
+      - name: "Deploy to develop server"
         run: |
           echo "Buy aws server first..."
