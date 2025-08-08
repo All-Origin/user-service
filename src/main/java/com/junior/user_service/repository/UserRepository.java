@@ -1,6 +1,6 @@
-package com.brainz.user_service.repository;
+package com.junior.user_service.repository;
 
-import com.brainz.user_service.entity.User;
+import com.junior.user_service.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

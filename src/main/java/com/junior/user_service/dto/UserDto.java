@@ -1,6 +1,6 @@
-package com.brainz.user_service.dto;
+package com.junior.user_service.dto;
 
-import com.brainz.user_service.enums.Roles;
+import com.junior.user_service.enums.Roles;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

@@ -1,13 +1,13 @@
-package com.brainz.user_service.service.impl;
+package com.junior.user_service.service.impl;
 
-import com.brainz.user_service.dto.LoginRequestDto;
-import com.brainz.user_service.dto.RegistrationRequestDto;
-import com.brainz.user_service.dto.UserDto;
-import com.brainz.user_service.dto.UserValidationResponse;
-import com.brainz.user_service.entity.User;
-import com.brainz.user_service.enums.Roles;
-import com.brainz.user_service.repository.UserRepository;
-import com.brainz.user_service.service.UserService;
+import com.junior.user_service.dto.LoginRequestDto;
+import com.junior.user_service.dto.RegistrationRequestDto;
+import com.junior.user_service.dto.UserDto;
+import com.junior.user_service.dto.UserValidationResponse;
+import com.junior.user_service.entity.User;
+import com.junior.user_service.enums.Roles;
+import com.junior.user_service.repository.UserRepository;
+import com.junior.user_service.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -15,7 +15,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 @Service
 @Slf4j

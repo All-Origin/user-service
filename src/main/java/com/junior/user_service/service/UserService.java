@@ -1,9 +1,9 @@
-package com.brainz.user_service.service;
+package com.junior.user_service.service;
 
-import com.brainz.user_service.dto.LoginRequestDto;
-import com.brainz.user_service.dto.RegistrationRequestDto;
-import com.brainz.user_service.dto.UserDto;
-import com.brainz.user_service.dto.UserValidationResponse;
+import com.junior.user_service.dto.LoginRequestDto;
+import com.junior.user_service.dto.RegistrationRequestDto;
+import com.junior.user_service.dto.UserDto;
+import com.junior.user_service.dto.UserValidationResponse;
 
 import java.util.List;
 

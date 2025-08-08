@@ -1,4 +1,4 @@
-package com.brainz.user_service.entity;
+package com.junior.user_service.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
