@@ -1,10 +1,10 @@
-package com.brainz.user_service.controller;
+package com.junior.user_service.controller;
 
-import com.brainz.user_service.dto.LoginRequestDto;
-import com.brainz.user_service.dto.RegistrationRequestDto;
-import com.brainz.user_service.dto.UserDto;
-import com.brainz.user_service.dto.UserValidationResponse;
-import com.brainz.user_service.service.UserService;
+import com.junior.user_service.dto.LoginRequestDto;
+import com.junior.user_service.dto.RegistrationRequestDto;
+import com.junior.user_service.dto.UserDto;
+import com.junior.user_service.dto.UserValidationResponse;
+import com.junior.user_service.service.UserService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
@@ -13,7 +13,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationToken;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -24,8 +23,8 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/user")
 @Validated
-@CrossOrigin(origins = "*")
 @SecurityRequirement(name = "bearerAuth")
+@CrossOrigin(origins = "http://localhost:8082")
 public class UserController {
 
     private final UserService userService;

@@ -1,4 +1,4 @@
-package com.brainz.user_service.enums;
+package com.junior.user_service.enums;
 
 public enum Roles {
     ROLE_USER,

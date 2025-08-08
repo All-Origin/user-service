@@ -1,9 +1,8 @@
-package com.brainz.user_service.entity;
+package com.junior.user_service.entity;
 
-import com.brainz.user_service.converter.JsonEnumListConverter;
-import com.brainz.user_service.enums.Roles;
+import com.junior.user_service.converter.JsonEnumListConverter;
+import com.junior.user_service.enums.Roles;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.*;

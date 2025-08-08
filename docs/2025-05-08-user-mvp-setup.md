@@ -6,7 +6,7 @@
 
 ## Overview
 
-This document outlines the initial setup and architecture of the UserService microservice for the Brainz project.
+This document outlines the initial setup and architecture of the UserService microservice for the Junior project.
 It explains what has been implemented, how the service is organized, current capabilities, and outstanding tasks.
 
 ---

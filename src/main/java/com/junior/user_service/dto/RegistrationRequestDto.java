@@ -1,4 +1,4 @@
-package com.brainz.user_service.dto;
+package com.junior.user_service.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;

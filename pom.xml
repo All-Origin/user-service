@@ -10,11 +10,11 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
-	<groupId>com.brainz</groupId>
+	<groupId>com.junior</groupId>
 	<artifactId>user-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>user-service</name>
-	<description>User service for brainZ project all what about user.</description>
+	<description>User service for Junior project all what about user.</description>
 
 
 	<properties>
