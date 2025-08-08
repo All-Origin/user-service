@@ -20,11 +20,11 @@ public class StartupAdminInitializer {
 
     @Autowired
     private PasswordEncoder passwordEncoder;
-    @Value("${admin.userName:junior}")
+    @Value("${admin.userName:admin}")
     private String defaultAdminUsername;
-    @Value("${admin.Name:Junior Ai}")
+    @Value("${admin.Name:Junior JLSS}")
     private String defaultName;
-    @Value("${admin.password:junior123}")
+    @Value("${admin.password:admin123}")
     private String defaultAdminPassword;
 
     @PostConstruct
